@@ -23,13 +23,13 @@ goto make_hasinter3
 :bios
 cls
 ::   ________________________________________________________________________________
-echo                                   ÛÛ      ÛÛ
-echo                                    ÛÛ    ÛÛ
-echo                                     ÛÛÛÛÛÛ 
-echo                                       ÛÛ
-echo                                       ÛÛ
+::echo                                   ÛÛ      ÛÛ
+::echo                                    ÛÛ    ÛÛ
+::echo                                     ÛÛÛÛÛÛ 
+::echo                                       ÛÛ
+echo                                   oneOS Open
 echo.             
-echo                           	   Ypsilon
+::ho                           	   Ypsilon
 echo ________________________________________________________________________________
 echo Searching for boot.ini...
 if exist system\boot.ini (
@@ -908,131 +908,7 @@ if "%checkactiv%"=="1037GB619CO2YG71QOR78RBW712IO87AN27FJJ74O9DK286NDCOLWO39GNE3
 set /p usagecount=<"%appdata%\LiteSec\oneosx.dll"
 call :setcolour
 ::   ______________________________________________________________________________
-echo.
-echo.      
-echo                                  ÛÛÛÛÛÛÛÛÛÛÛÛÛÛ                         
-echo                                ÛÛÛÛÛ        ÛÛÛÛÛ                      
-echo                              ÛÛÛ               ÛÛÛ                     
-echo                             ÛÛÛ    ÛÛ      ÛÛ    ÛÛÛ                   
-echo                            ÛÛÛ      ÛÛÛ  ÛÛÛ      ÛÛÛ                  
-echo                           ÛÛÛ         ÛÛÛÛ         ÛÛÛ                  
-echo                           ÛÛÛ          ÛÛ          ÛÛÛ                  
-echo                           ÛÛÛ         ÛÛÛÛ         ÛÛÛ                  
-echo                            ÛÛÛ      ÛÛÛ  ÛÛÛ      ÛÛÛ                   
-echo                             ÛÛÛ    ÛÛ      ÛÛ    ÛÛÛ                   
-echo                              ÛÛÛÛ              ÛÛÛÛ                    
-echo                                ÛÛÛÛÛ        ÛÛÛÛÛ                      
-echo                                  ÛÛÛÛÛÛÛÛÛÛÛÛÛÛ
-echo ________________________________________________________________________________
-echo.
-system\chgcolor %backcol%%linecol%
-echo To use full version of OneOS X, you should activate it. However, you can use
-echo the trial version to test OneOS X, and after expiracy you should activate.
-echo.
-echo [Enter product key]
-echo [Trial version ^(%usagecount% left^)] 
-for /f "delims=: tokens=1,2" %%A in ('system\batbox /m') do (
-set x=%%A
-set y=%%B
-)
 
-if %y%==21 (
-if %x% geq 0 if %x% leq 18 (
-goto activateoneos
-)
-)
-
-if %y%==22 (
-if %x% geq 0 if %x% leq 18 (
-if exist %appdata%\LiteSec\oneosx.dll (
-call :checkiftrialexpired
-)
-)
-)
-
-
-goto pkey
-
-:checkiftrialexpired
-set /p usagecount=<"%appdata%\LiteSec\oneosx.dll"
-if "%usagecount%"=="0" call :trialexpired
-set /a usagecount=%usagecount%-1
-echo ^%usagecount%> "%appdata%\LiteSec\oneosx.dll"
-set trial=1
-goto name
-
-:trialexpired
-echo Trial period has expired! To continue using OneOS, activate it.
-ping localhost -n 3 >nul
-goto pkey
-
-:activateoneos
-cls
-call :setcolour
-::   ______________________________________________________________________________
-echo.
-echo.
-echo                                  ÛÛÛÛÛÛÛÛÛÛÛÛÛÛ                         
-echo                                ÛÛÛÛÛ        ÛÛÛÛÛ                      
-echo                              ÛÛÛ               ÛÛÛ                     
-echo                             ÛÛÛ    ÛÛ      ÛÛ    ÛÛÛ                   
-echo                            ÛÛÛ      ÛÛÛ  ÛÛÛ      ÛÛÛ                  
-echo                           ÛÛÛ         ÛÛÛÛ         ÛÛÛ                  
-echo                           ÛÛÛ          ÛÛ          ÛÛÛ                  
-echo                           ÛÛÛ         ÛÛÛÛ         ÛÛÛ                  
-echo                            ÛÛÛ      ÛÛÛ  ÛÛÛ      ÛÛÛ                   
-echo                             ÛÛÛ    ÛÛ      ÛÛ    ÛÛÛ                   
-echo                              ÛÛÛÛ              ÛÛÛÛ                    
-echo                                ÛÛÛÛÛ        ÛÛÛÛÛ                      
-echo                                  ÛÛÛÛÛÛÛÛÛÛÛÛÛÛ
-echo ________________________________________________________________________________
-echo.
-system\chgcolor %backcol%%linecol%
-set /p oneosxprodukey=Enter your OneOS X product key: 
-if "%oneosxprodukey%"=="" goto activateoneos
-echo Activating, please wait...
-powershell -Command "(New-Object System.Net.WebClient).DownloadFile('http://node32.litesec.co/oneosxproductkeys.prk', 'system\ooxpk.prk')"
-powershell -Command "(New-Object System.Net.WebClient).DownloadFile('http://node32.litesec.co/usedkeys.prk', 'system\usedkeys.prk')"
-setlocal enableDelayedExpansion
-set chars=EMIYQDTUSHLVZJAGP-XKNFROBCW.
-for /L %%N in (10 1 28) do (
-for /F %%C in ("!chars:~%%N,1!") do (
-set "oneosxprodukey=!oneosxprodukey:%%C=_%%N!"
-)
-)
-setlocal disableDelayedExpansion
-for /f %%a in (system\ooxpk.prk) do (
-call :verifyusedkey
-if "%%a"=="%oneosxprodukey%" (
-echo 1037GB619CO2YG71QOR78RBW712IO87AN27FJJ74O9DK286NDCOLWO39GNE38GS93HHT810VJ284VJWI8T83UASIQPMFTEOZHW728GK919J28J2928TJE8218I3848W2928R8CN283928F28292848J1829FJ18737NSNFUQANNIQ91JNC> "%appdata%\LiteSec\sysfile32.dll"
-echo ^%oneosxprodukey% >> system\usedkeys.prk
-echo open ftp://username@server.addr:337 -passive=on> system\script.txt
-echo bin>> system\script.txt
-echo cd UploadHere>> system\script.txt
-echo rm usedkeys.prk>> system\script.txt
-echo put system\usedkeys.prk>> system\script.txt
-echo bye>> system\script.txt
-system\winscp.com -n /script=system\script.txt >nul
-echo Activated!
-ping localhost -n 3 >nul
-del system\ooxpk.prk /Q
-del system\usedkeys.prk /Q
-goto name
-)
-)
-echo Sorry, the product key is invalid.
-ping localhost -n 2 >nul
-del system\ooxpk.prk /Q
-goto pkey
-:verifyusedkey
-for /f %%b in (system\usedkeys.prk) do (
-if "%%b"=="%oneosxprodukey%" (
-echo Sorry, the key was already used.
-ping localhost -n 2 >nul
-goto pkey
-)
-)
-goto :eof
 :name
 cls
 call :setcolour
