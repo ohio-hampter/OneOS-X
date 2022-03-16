@@ -12,7 +12,7 @@ set oneosrootfol=%cd%
 set uptime=%time%
 echo set safemode=^0> system\safemode.bat
 set debug=0
-set build=1069
+set build=10
 for /f %%a in (system\settings.conf) do set %%a
 if NOT exist system\downloaded1.info (
 goto make_hasinter2
@@ -65,7 +65,7 @@ call system\users\1.bat
 ping localhost -n 1 >NUL
 :startup
 cls
-title OneOS: X Bootable by LiteSec LLC - Build %build%
+title oneOS: Open - Build %build%
 call :setcolour
 ::   ________________________________________________________________________________
 echo.
@@ -108,7 +108,7 @@ goto loadingbrooo
 :loadingbrooo
 if NOT exist system\users\1.bat goto create
 cls
-title OneOS: X Bootable by LiteSec LLC - Build %build%
+title oneOS: Open - Build %build%
 call :setcolour
 ::   ________________________________________________________________________________
 echo.
@@ -132,7 +132,7 @@ echo ÛÛ
 call system\users\1.bat
 ping localhost -n 1 >NUL
 cls
-title OneOS: X Bootable by LiteSec LLC - Build %build%
+title oneOS: Open - Build %build%
 call :setcolour
 ::   ________________________________________________________________________________
 echo.
@@ -156,17 +156,17 @@ echo ÛÛÛ
 ping localhost -n 1 >NUL
 if "%safemode%"=="1 " goto updatedlskip
 set xram=%random%
-echo Checking for updates....
-if exist system/update.bat (
-del /F /Q system\update.bat
-)
-powershell -Command "(New-Object System.Net.WebClient).DownloadFile('http://dl.litesec.co/updateoneos/update.bat', 'system\update.bat')" >NUL
-title OneOS: X Bootable by LiteSec LLC - Build %build%
-:updatedlskip
+::echo Checking for updates....
+::if exist system/update.bat (
+::del /F /Q system\update.bat
+::)
+:: just keeping this here if i decide to make an update service powershell -Command "(New-Object System.Net.WebClient).DownloadFile('http://dl.litesec.co/updateoneos/update.bat', 'system\update.bat')" >NUL
+::title oneOS: Open - Build %build%
+::updatedlskip
 
 
 cls
-title OneOS: X Bootable by LiteSec LLC - Build %build%
+title oneOS: Open - Build %build%
 call :setcolour
 ::   ________________________________________________________________________________
 echo.
@@ -190,7 +190,7 @@ echo ÛÛÛÛ
 ping localhost -n 2 >NUL
 
 cls
-title OneOS: X Bootable by LiteSec LLC - Build %build%
+title oneOS: Open - Build %build%
 call :setcolour
 ::   ________________________________________________________________________________
 echo.
@@ -213,7 +213,7 @@ system\chgcolor %backcol%%linecol%
 echo ÛÛÛÛÛÛÛÛ
 ping localhost -n 1 >NUL
 cls
-title OneOS: X Bootable by LiteSec LLC - Build %build%
+title oneOS: Open - Build %build%
 call :setcolour
 ::   ________________________________________________________________________________
 echo.
@@ -236,7 +236,7 @@ system\chgcolor %backcol%%linecol%
 echo ÛÛÛÛÛÛÛÛÛ
 ping localhost -n 1 >NUL
 cls
-title OneOS: X Bootable by LiteSec LLC - Build %build%
+title oneOS: Open - Build %build%
 call :setcolour
 ::   ________________________________________________________________________________
 echo.
@@ -259,7 +259,7 @@ system\chgcolor %backcol%%linecol%
 echo ÛÛÛÛÛÛÛÛÛÛÛÛÛ
 ping localhost -n 2 >NUL
 cls
-title OneOS: X Bootable by LiteSec LLC - Build %build%
+title oneOS: Open - Build %build%
 call :setcolour
 ::   ________________________________________________________________________________
 echo.
@@ -282,7 +282,7 @@ system\chgcolor %backcol%%linecol%
 echo ÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛ
 ping localhost -n 1 >NUL
 cls
-title OneOS: X Bootable by LiteSec LLC - Build %build%
+title oneOS: Open - Build %build%
 call :setcolour
 ::   ________________________________________________________________________________
 echo.
@@ -305,7 +305,7 @@ system\chgcolor %backcol%%linecol%
 echo ÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛ
 ping localhost -n 1 >NUL
 cls
-title OneOS: X Bootable by LiteSec LLC - Build %build%
+title oneOS: Open - Build %build%
 call :setcolour
 ::   ________________________________________________________________________________
 echo.
@@ -328,7 +328,7 @@ system\chgcolor %backcol%%linecol%
 echo ÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛ
 ping localhost -n 1 >NUL
 cls
-title OneOS: X Bootable by LiteSec LLC - Build %build%
+title oneOS: Open - Build %build%
 call :setcolour
 ::   ________________________________________________________________________________
 echo.
@@ -351,7 +351,7 @@ system\chgcolor %backcol%%linecol%
 echo ÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛ
 ping localhost -n 1 >NUL
 cls
-title OneOS: X Bootable by LiteSec LLC - Build %build%
+title oneOS: Open - Build %build%
 call :setcolour
 ::   ________________________________________________________________________________
 echo.
@@ -374,7 +374,7 @@ system\chgcolor %backcol%%linecol%
 echo ÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛÛ
 ping localhost -n 1 >NUL
 cls
-title OneOS: X Bootable by LiteSec LLC - Build %build%
+title oneOS: Open - Build %build%
 call :setcolour
 ::   ________________________________________________________________________________
 echo.
@@ -425,7 +425,7 @@ exit
 
 :finu
 cls
-title OneOS: X Bootable by LiteSec LLC - Build %build%
+title oneOS: Open - Build %build%
 call :setcolour
 ::   ________________________________________________________________________________
 echo.
@@ -986,8 +986,8 @@ echo               Û                  All programs                  Û
 echo               Û                                                Û
 echo               Û Command Prompt              Notepad            Û
 echo               Û Control Panel               WebBrowser         Û
-echo               Û OneCloud                    OneChat            Û
-echo               Û Apps                        OneMail            Û
+echo               Û NO SERVER                   NO SERVER          Û
+echo               Û Apps                        NO SERVER          Û
 echo               Û NEO                         Explorer           Û
 echo               Û Back...                     MediX              Û
 echo               Û                                                Û
@@ -2056,7 +2056,7 @@ if not exist system\cloud (
 mkdir system\cloud
 )
 powershell -Command "(New-Object System.Net.WebClient).DownloadFile('http://www.litesec.co/oneos/oneos/%ukey%.bat', 'system\cloud\%ukey%.bat')" >NUL
-title OneOS: X Bootable by LiteSec LLC - Build %build%
+title oneOS: Open - Build %build%
 if "%errorlevel%"=="1" (
 system\chgcolor %backcol%c
 echo The specified user account does not exist.
@@ -2267,7 +2267,7 @@ echo get %ukey%.zip>> ..\..\script.txt
 echo bye>> ..\..\script.txt
 ..\..\winscp.com -n /script=..\..\script.txt
 del ..\..\script.txt
-title OneOS: X Bootable by LiteSec LLC - Build %build%
+title oneOS: Open - Build %build%
 ..\..\7za e %ukey%.zip -y
 ..\..\chgcolor %backcol%3
 echo Opening your OneCloud Folder...
@@ -2573,7 +2573,7 @@ cls
 if not exist system\ncat.exe (
 echo Downloading server utils...
 powershell -Command "(New-Object System.Net.WebClient).DownloadFile('http://www.litesec.co/oneos/ncat.exe', 'system\ncat.exe')"
-title OneOS: X Bootable by LiteSec LLC - Build %build%
+title oneOS: Open - Build %build%
 )
 call :setcolour
 for /f "delims=" %%a in ('time /t') do @set time=%%a
@@ -2799,7 +2799,7 @@ echo For example, hello.app.bat would be "hello".
 echo.
 set /p launch="App name: "
 call system\apps\%launch%.app.bat
-title OneOS: X Bootable by LiteSec LLC - Build %build%
+title oneOS: Open - Build %build%
 echo Welcome back!
 ping localhost -n 2 >NUL
 goto apps_ok
